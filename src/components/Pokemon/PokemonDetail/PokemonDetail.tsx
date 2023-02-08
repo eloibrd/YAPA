@@ -1,10 +1,14 @@
-import React from "react";
 import styles from "PokemonDetail.module.scss";
 
-class PokemonDetail extends React.Component {
-  render() {
-    return <div className={styles.App}></div>;
-  }
-}
+/**
+ * @prop `pokemonId`: number - the id of the pokemon to display
+ */
+type Props = { pokemonId: number };
 
-export default PokemonDetail;
+/**
+ * Display a detailed pokemon
+ * @returns A React component
+ */
+export default function PokemonDetail({ pokemonId }: Props) {
+  return <div className={styles.App}></div>;
+}

@@ -1,8 +1,9 @@
-@import "../../assets/style/dark.colors.scss";
+@import "../../style/dark.colors.scss";
 
 .AppBar {
     /* Styling */
-    background-color: $color-appbar;
+    background: linear-gradient(#283e4b, #385769);
+    box-shadow: 10px 5px 5px red;
     padding: 1rem 2rem;
     /* Layout */
     display: flex;

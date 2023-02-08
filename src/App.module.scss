@@ -1,4 +1,4 @@
-@import "assets/style/dark.colors.scss";
+@import "style/dark.colors.scss";
 
 .App {
     text-align: center;
@@ -15,11 +15,11 @@
     flex-grow: 1;
     background-color: $color-background;
     // flex container
-    display: flex;
-    flex-direction: column;
-    -ms-flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    // display: flex;
+    // flex-direction: column;
+    // -ms-flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
     // text style
     color: $color-foreground;
 }

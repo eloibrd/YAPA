@@ -1,15 +1,26 @@
-import React from "react";
-import logo from "../../assets/images/logo.svg";
+import { useState } from "react";
 import styles from "./Pokedex.module.scss";
+import PokemonList from "../Pokemon/PokemonList/PokemonList";
 
-class Pokedex extends React.Component {
-  render() {
-    return (
-      <div className={styles.App}>
-        <img src={logo} className={styles.Logo} alt="logo" />
+/**
+ * Display the Pokedex view
+ * @returns A React component
+ */
+export default function Pokedex() {
+  const [pokemonList, setPokemonList] = useState<Array<PokemonEntry>>([
+    { entryNumber: 1, name: "Bulbazaur" } as PokemonEntry,
+    { entryNumber: 2, name: "Bulbazaur" } as PokemonEntry,
+    { entryNumber: 3, name: "Bulbazaur" } as PokemonEntry,
+  ] as Array<PokemonEntry>);
+
+  return (
+    <>
+      <div className={styles.Pokedex}>
+        <div className={styles.PokemonList}>
+          <PokemonList pokemonEntries={pokemonList} />
+        </div>
+        <div className={styles.PokemonDetail}></div>
       </div>
-    );
-  }
+    </>
+  );
 }
-
-export default Pokedex;
