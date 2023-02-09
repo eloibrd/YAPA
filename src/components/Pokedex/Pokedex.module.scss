@@ -1,17 +1,8 @@
 .Pokedex {
+    flex-grow: 1;
     display: grid;
-    margin: 3em;
-    grid-template-columns: repeat(5, 1fr);
+    padding: 3rem;
+    grid-template-columns: 35% 60%;
+    grid-template-rows: 80vh;
     gap: 5%;
-    background-color: green;
-
-    .PokemonList {
-        grid-column: 1 / 3;
-        background-color: red;
-    }
-
-    .PokemonDetail {
-        grid-column: 3 / 6;
-        background-color: yellow;
-    }
 }

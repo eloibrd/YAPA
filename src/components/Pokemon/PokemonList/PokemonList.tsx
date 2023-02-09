@@ -12,9 +12,9 @@ type Props = { pokemonEntries: Array<PokemonEntry> };
  */
 export default function PokemonList({ pokemonEntries }: Props) {
   return (
-    <div className={styles.App}>
+    <div className={styles.PokemonList}>
       {pokemonEntries.map((pokemonEntry, index) => (
-        <div key={pokemonEntry.entryNumber}>
+        <div key={index}>
           <PokemonCard pokemonEntry={pokemonEntry} />
         </div>
       ))}

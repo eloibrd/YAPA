@@ -1,4 +1,14 @@
+@import "../../../style/dark.colors.scss";
+
 .Card {
-    border: 1px solid black;
-    border-radius: 5%;
+    border-radius: 15px;
+    padding: 1rem 0px;
+    margin: 0.5em;
+    cursor: pointer;
+    background-color: $pokemon-card-color;
+    color: $pokemon-card-font-color;
+
+    &:hover {
+        background-color: $pokemon-card-color-hover;
+    }
 }

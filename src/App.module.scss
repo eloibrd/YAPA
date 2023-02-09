@@ -2,24 +2,19 @@
 
 .App {
     text-align: center;
-    // take at least th ewhole page in height
-    min-height: 100vh;
+    height: 100%;
     // flex container
     display: flex;
     flex-direction: column;
     -ms-flex-direction: column;
-}
 
-.MainContent {
-    // allow the main content to take all remaining space in the main axis
-    flex-grow: 1;
-    background-color: $color-background;
-    // flex container
-    // display: flex;
-    // flex-direction: column;
-    // -ms-flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
-    // text style
-    color: $color-foreground;
+    .MainContent {
+        flex-grow: 1;
+        background-color: $color-background;
+        // flex container
+        display: flex;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        color: $color-foreground;
+    }
 }

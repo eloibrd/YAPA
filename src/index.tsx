@@ -1,12 +1,23 @@
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
-// After
+// Using react 18 new Root API
 import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import { store } from "./lib/store/store";
+import React from "react";
+
+console.log(process.env); // remove this after you've confirmed it is working
+
 const container = document.getElementById("app");
 const root = createRoot(container!);
-root.render(<App />);
+root.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

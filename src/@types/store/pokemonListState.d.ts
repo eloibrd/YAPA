@@ -2,9 +2,9 @@ interface PokemonListState {
   /**
    * List of pokemons to display
    */
-  pokemonList: Array<Pokemon>;
+  pokemonList: Array<PokemonEntry>;
   /**
    * State status
    */
-  status: "idle" | "loading" | "failed";
+  status: RessourceStatus;
 }

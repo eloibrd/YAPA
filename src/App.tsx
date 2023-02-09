@@ -10,9 +10,9 @@ class App extends React.Component {
   render() {
     return (
       <div className={styles.App}>
-        <header>
+        <div>
           <AppBar />
-        </header>
+        </div>
         <div className={styles.MainContent}>
           <Pokedex />
         </div>

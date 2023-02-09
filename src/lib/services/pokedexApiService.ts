@@ -1,5 +1,6 @@
 import { AxiosResponse } from "axios";
-import BaseApi from "./baseApi";
+import BaseApi from "../api-client/baseApi";
+import PokemonEntryAdapter from "../utils/pokemonEntryAdapter";
 
 /**
  * Base endpoint url to request, may need to be completed with more details in actual requests
@@ -10,12 +11,17 @@ class PokedexApi extends BaseApi {
   async getNationalPokedex(): Promise<Array<PokemonEntry>> {
     try {
       const res: AxiosResponse = await this.get(`${ENDPOINT_URL}/1`);
+      let pokemonEntryList: PokemonEntry[] = [];
+      res.data["pokemon_entries"].forEach((element: any) => {
+        pokemonEntryList.push(
+          new PokemonEntryAdapter(element).getWrappedPokemonEntry()
+        );
+      });
       const result: HttpResponse<Array<PokemonEntry>> = {
         status: res.status,
-        data: res.data["pokemon_entries"],
+        data: pokemonEntryList,
       };
-      console.log(result.data);
-      return [];
+      return result.data;
     } catch (error) {
       return [];
     }

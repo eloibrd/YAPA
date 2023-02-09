@@ -1,11 +1,21 @@
 // ----- MAIN COLORS -----
 
 // foreground color, for texts mostly
-$color-foreground: #e7e7e7;
+$color-foreground: rgb(231, 231, 231);
 // background color
-$color-background: #3b5c6e;
+$color-background: rgb(59, 92, 110);
 // AppBar color
-$color-appbar: #cecece;
+// $color-appbar: rgb(206, 206, 206);
+// link color
+$link-color: rgb(97, 218, 251);
+
 // ----- SPECIFIC COLORS -----
 
-$link-color: #61dafb;
+$pokemon-card-font-color: rgb(59, 92, 110);
+$pokemon-card-color: rgb(235, 235, 235);
+$pokemon-card-color-hover: rgb(201, 201, 201);
+
+// ----- SCROLL BAR COLORS -----
+$scroll-track: rgba(92, 158, 190, 0.4);
+$scroll-thumb: rgb(52, 106, 134);
+$scroll-thumb-hover: rgb(59, 161, 216);

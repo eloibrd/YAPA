@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosPromise, AxiosResponse } from "axios";
+import initInterceptors from "./interceptors";
 
 export default class BaseApi {
   private _axiosInstance: AxiosInstance | undefined;
@@ -6,7 +7,7 @@ export default class BaseApi {
   private _token: string | null;
 
   constructor() {
-    this._baseURL = process.env.API_URL ?? "";
+    this._baseURL = process.env.REACT_APP_API_URL ?? "";
     this._token = null;
 
     this.createAxiosInstance();
@@ -37,19 +38,8 @@ export default class BaseApi {
 
     // this.checkAutorization()
 
-    // Add a request interceptor
-    this._axiosInstance.interceptors.request.use(
-      (config) => config,
-      (error) => {
-        return Promise.reject(error);
-      }
-    );
-
-    // Add a response interceptor
-    this._axiosInstance.interceptors.response.use(
-      this.handleSuccess,
-      this.handleError
-    );
+    // Add interceptors
+    initInterceptors(this._axiosInstance);
   }
 
   protected getToken() {
@@ -102,37 +92,5 @@ export default class BaseApi {
           reject(error);
         });
     });
-  }
-
-  /**
-   * Handle success in http requests, a wrapper to forward the `AxiosResponse`
-   * @param response
-   * @returns a rejected `Promise`
-   */
-  private handleSuccess(response: AxiosResponse): AxiosResponse {
-    // console.log('handleSuccess' + JSON.stringify(response))
-    return response;
-  }
-
-  /**
-   * Handle errors in http requests
-   * @param error the error to handle
-   * @returns a rejected `Promise`
-   */
-  private handleError(error: any): Promise<never> {
-    console.log(`HttpService::Error : ${error}`);
-    if (!error.response) {
-      console.error(`Network error: ${error}`);
-    } else {
-      if (error.response !== undefined) {
-        const { status } = error.response;
-        if (status === 401 || status === 500) {
-          console.error(
-            `HttpService::Error(401 or 500) : ${error.response.data.Message}`
-          );
-        }
-      }
-    }
-    return Promise.reject(error);
   }
 }
